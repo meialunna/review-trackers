@@ -5,6 +5,7 @@ from pages.locators import BestSellersPageLocators
 from pages.locators import ProductPageLocators
 from pages.locators import WishlistPageLocators
 
+
 class BasePage():
     def __init__(self, driver):
         self.driver = driver

@@ -1,0 +1,3 @@
+1. Given that user is on the "Reset your password" page, when user enters their email and submits it, then user should receive an email with password resetting instructions.
+2. Given that user is not logged in, when user enters a valid existing email and password, then user should be able to log in.
+3. Given that user doesn't have an account, when user enters valid name, email and password, the user should be able to create an account.
