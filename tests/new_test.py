@@ -11,7 +11,6 @@ from pages.locators import WishlistPageLocators
 class NewTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.wait = WebDriverWait(self.driver, 10)
 
         best_sellers_page = BestSellersPage(self.driver)
         best_sellers_page.open()
@@ -30,14 +29,16 @@ class NewTest(unittest.TestCase):
         wishlist_page = WishlistPage(self.driver)
         wishlist_page.open()
 
-        self.wait.until(EC.text_to_be_present_in_element(WishlistPageLocators.PRODUCT_TITLE, product_title))
+        self.assertTrue(EC.text_to_be_present_in_element(WishlistPageLocators.PRODUCT_TITLE_LOCATOR, product_title))
 
     def test_remove_all_from_wishlist(self):
         wishlist_page = WishlistPage(self.driver)
         wishlist_page.open()
-        wishlist_page.clear_all_wishlist()
 
-        self.wait.until(EC.presence_of_element_located(WishlistPageLocators.EMPTY_WISHLIST))
+        self.assertTrue(EC.presence_of_element_located(WishlistPageLocators.PRODUCT_TITLE_LOCATOR))
+
+        wishlist_page.clear_all_wishlist()
+        self.assertTrue(EC.presence_of_element_located(WishlistPageLocators.EMPTY_WISHLIST_LOCATOR))
 
 
 
